@@ -46,8 +46,23 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
-		// TODO Auto-generated method stub
-		return null;
+		if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+
+        @SuppressWarnings("unchecked")
+        T removedItem = (T) items[index];
+        
+        // Shift elements to the left to fill the gap
+        System.arraycopy(items, index + 1, items, index, size - index - 1);
+        
+        // Decrease size
+        size--;
+
+        // Nullify the last element to remove any object reference
+        items[size] = null;
+        
+        return removedItem;
 	}
 
 }
