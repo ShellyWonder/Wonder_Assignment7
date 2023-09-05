@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+
 public class CustomArrayListTest {
 	//Test-Driven Development Methodology
 	//Step 1: Write a failing test;
@@ -56,7 +57,51 @@ public class CustomArrayListTest {
         assertThrows(IndexOutOfBoundsException.class, () -> customArrayList.get(0));
         assertThrows(IndexOutOfBoundsException.class, () -> customArrayList.get(-1));
     }
+    @Test
+    public void testRemoveMiddleElement() {
+    	customArrayList.add(1);
+    	customArrayList.add(2);
+    	customArrayList.add(3);
+        int removedItem = customArrayList.remove(1);
+        
+        assertEquals(2, removedItem);
+        assertEquals(2, customArrayList.getSize());
+        assertEquals(1, customArrayList.get(0));
+        assertEquals(3, customArrayList.get(1));
+    }
+    @Test
+    public void testRemoveFirstElement() {
+    	customArrayList.add(1);
+    	customArrayList.add(2);
+    	customArrayList.add(3);
+        int removedItem = customArrayList.remove(0);
+        
+        assertEquals(1, removedItem);
+        assertEquals(2, customArrayList.getSize());
+        assertEquals(2, customArrayList.get(0));
+        assertEquals(3, customArrayList.get(1));
+    }
+    @Test
+    public void testRemoveLastElement() {
+    	customArrayList.add(1);
+    	customArrayList.add(2);
+    	customArrayList.add(3);
+        int removedItem = customArrayList.remove(2);
+        
+        assertEquals(3, removedItem);
+        assertEquals(2, customArrayList.getSize());
+        assertEquals(1, customArrayList.get(0));
+        assertEquals(2, customArrayList.get(1));
+    }
+    
+    @Test
+    public void testRemoveThrowsException() {
+    	customArrayList.add(1);
+        assertThrows(IndexOutOfBoundsException.class, () -> customArrayList.remove(1));
+        assertThrows(IndexOutOfBoundsException.class, () -> customArrayList.remove(-1));
+    }
 
+    
     @Test
     public void testArrayResize() {
         for (int i = 0; i < 11; i++) {

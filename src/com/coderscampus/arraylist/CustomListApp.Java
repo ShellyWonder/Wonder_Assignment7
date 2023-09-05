@@ -27,10 +27,23 @@ public class CustomListApp {
 		myCustomArrayList.add("CSS");
 		myCustomArrayList.add("HTML");
 		myCustomArrayList.add("JavaScript");
-		
+
 		for (int i = 0; i < myCustomArrayList.getSize(); i++) {
 			System.out.println(myCustomArrayList.get(i));
-}
+		}
+		//Remove "CSS" and "Joe"
+				for (int i = 0; i < myCustomArrayList.getSize(); i++) {
+					String item = myCustomArrayList.get(i);
+					if ("CSS".equals(item) || "Joe".equals(item)) {
+						myCustomArrayList.remove(i);
+						i--; // Decrease the index to ensure we don't skip any elements
+					}
+				}
+				
+				System.out.println("\nUpdated List:");
+				for (int i = 0; i < myCustomArrayList.getSize(); i++) {
+					System.out.println(myCustomArrayList.get(i));
+				}
 	}
 
 }
