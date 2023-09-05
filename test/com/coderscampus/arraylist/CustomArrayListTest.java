@@ -7,7 +7,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CustomArrayListTest {
+	//Test-Driven Development Methodology
+	//Step 1: Write a failing test;
+	//Step 2: Write the business logic for a passing test;
+	//Step 3: Re-factor the code;
     
+	//Arrange-- set up, 
+	//Act--invoke the code,
+	//Assert-- test expected to pass,
     private CustomArrayList<Integer> customArrayList;
 
     @BeforeEach

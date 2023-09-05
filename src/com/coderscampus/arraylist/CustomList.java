@@ -23,5 +23,24 @@ public interface CustomList<T> {
 	 * @param index represents the position in the backing <code>Object</code> array that we want to access
 	 * @return The element that is stored inside of the <code>CustomList</code> at the given index
 	 */
-	T get(int index);
+	T get(int index) throws IndexOutOfBoundsException;
+
+	   
+    /**
+
+     * This method should remove an item from the <code>CustomList</code> at the
+
+     * specified index. This will NOT leave an empty <code>null</code> where the item
+
+     * was removed, instead all other items to the right will be shuffled to the left.
+
+     * @param index the index of the item to remove
+
+     * @return the actual item that was removed from the list
+
+     * @throws IndexOutOfBoundsException
+
+     */
+
+    T remove(int index) throws IndexOutOfBoundsException;
 }

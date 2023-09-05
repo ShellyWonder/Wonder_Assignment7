@@ -23,7 +23,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	}
 
 	@Override
-	public T get(int index) {
+	public T get(int index)throws IndexOutOfBoundsException {
 		if (index < 0 || index >= size) {
 			throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
 		}
@@ -42,6 +42,12 @@ public class CustomArrayList<T> implements CustomList<T> {
 		System.arraycopy(items, 0, newItems, 0, items.length);
 		items = newItems;
 
+	}
+
+	@Override
+	public T remove(int index) throws IndexOutOfBoundsException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
