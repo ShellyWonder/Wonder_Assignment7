@@ -56,7 +56,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 		return result;
 	}
 
-	// Create a private helper method `resizeArray()` to handle the array resizing
+	// handles the array resizing
 
 	private void resizeArray() {
 		Object[] newItems = new Object[items.length * 2];
