@@ -17,13 +17,36 @@ public class CustomArrayList<T> implements CustomList<T> {
 	}
 
 	@Override
+	public boolean add(int index, T item) throws IndexOutOfBoundsException {
+		
+		 if (index < 0 || index > size) {  
+			 
+		        throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+		    }
+
+		    // Check if array needs resizing
+		    if (size == items.length) {
+		        resizeArray();
+		    }
+
+		    // If the item is not being added at the end, shift items to the right to make space
+		    if (index != size) {
+		        System.arraycopy(items, index, items, index + 1, size - index);
+		    }
+		    
+            items[index] = item;
+            size++;
+            return true;
+	}
+
+	@Override
 	public int getSize() {
 
 		return size;
 	}
 
 	@Override
-	public T get(int index)throws IndexOutOfBoundsException {
+	public T get(int index) throws IndexOutOfBoundsException {
 		if (index < 0 || index >= size) {
 			throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
 		}
@@ -34,10 +57,10 @@ public class CustomArrayList<T> implements CustomList<T> {
 	}
 
 	// Create a private helper method `resizeArray()` to handle the array resizing
-	
+
 	private void resizeArray() {
 		Object[] newItems = new Object[items.length * 2];
-		
+
 		// System.arraycopy copies the items from the old array to the new array.
 		System.arraycopy(items, 0, newItems, 0, items.length);
 		items = newItems;
@@ -47,22 +70,22 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
 		if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
+			throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+		}
 
-        @SuppressWarnings("unchecked")
-        T removedItem = (T) items[index];
-        
-        // Shift elements to the left to fill the gap
-        System.arraycopy(items, index + 1, items, index, size - index - 1);
-        
-        // Decrease size
-        size--;
+		@SuppressWarnings("unchecked")
+		T removedItem = (T) items[index];
 
-        // Nullify the last element to remove any object reference
-        items[size] = null;
-        
-        return removedItem;
+		// Shift elements to the left to fill the gap
+		System.arraycopy(items, index + 1, items, index, size - index - 1);
+
+		// Decrease size
+		size--;
+
+		// Nullify the last element to remove any object reference
+		items[size] = null;
+
+		return removedItem;
 	}
 
 }

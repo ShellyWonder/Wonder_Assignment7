@@ -15,6 +15,19 @@ public interface CustomList<T> {
 	 * based on the number of actual elements stored inside of the <code>CustomList</code>
 	 * @return an <code>int</code> representing the number of elements stored in the <code>CustomList</code>
 	 */
+	
+	boolean add (int index, T item) throws IndexOutOfBoundsException;
+
+	   
+    /**
+     * This method should return the size of the <code>CustomList</code>
+
+     * based on the number of actual elements stored inside of the <code>CustomList</code>
+
+     * @return an <code>int</code> representing the number of elements stored in the <code>CustomList</code>
+
+     */
+	
 	int getSize();
 	
 	/**
