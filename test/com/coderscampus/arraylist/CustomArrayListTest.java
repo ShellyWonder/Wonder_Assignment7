@@ -39,25 +39,25 @@ public class CustomArrayListTest {
 
 		// Test adding a specific item at the beginning
 		customArrayList2.add(0, "Start");
-		assertEquals(1, customArrayList.getSize());
-		assertEquals("Start", customArrayList.get(0));
+		assertEquals(1, customArrayList2.getSize());
+		assertEquals("Start", customArrayList2.get(0));
 
 		// Test adding a specific item in the middle
 		customArrayList2.add("A");
 		customArrayList2.add("B");
 		customArrayList2.add(2, "Middle");
-		assertEquals(4, customArrayList.getSize());
-		assertEquals("Middle", customArrayList.get(2));
+		assertEquals(4, customArrayList2.getSize());
+		assertEquals("Middle", customArrayList2.get(2));
 
 		// Test adding a specific item at the end
-		customArrayList2.add(customArrayList.getSize(), "End");
-		assertEquals(5, customArrayList.getSize());
-		assertEquals("End", customArrayList.get(customArrayList.getSize() - 1));
+		customArrayList2.add(customArrayList2.getSize(), "End");
+		assertEquals(5, customArrayList2.getSize());
+		assertEquals("End", customArrayList2.get(customArrayList2.getSize() - 1));
 
 		// Test adding a null item
-		customArrayList.add(3, null);
-		assertEquals(6, customArrayList.getSize());
-		assertNull(customArrayList.get(3));
+		customArrayList2.add(3, null);
+		assertEquals(6, customArrayList2.getSize());
+		assertNull(customArrayList2.get(3));
 	}
 
 	@Test
