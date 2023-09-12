@@ -1,9 +1,9 @@
 package com.coderscampus.arraylist;
 
 public class GenerateList {
-	
+
 	public static void addItemToList(CustomList<String> myCustomArrayList) {
-		
+
 		myCustomArrayList.add("People:");
 		myCustomArrayList.add("Michael");
 		myCustomArrayList.add("Cat:");
@@ -28,18 +28,25 @@ public class GenerateList {
 		myCustomArrayList.add("CSS");
 		myCustomArrayList.add("HTML");
 		myCustomArrayList.add("JavaScript");
- 
+
 	}
-	
+
+	public static void addItemToList(CustomList<String> myCustomArrayList, int index, String item)
+			throws IndexOutOfBoundsException {
+		myCustomArrayList.add(index, item);
+
+	}
+
 	public static void removeItemFromList(CustomList<String> myCustomArrayList) {
 		for (int i = 0; i < myCustomArrayList.getSize(); i++) {
 			String item = myCustomArrayList.get(i);
 			if ("CSS".equals(item) || "Joe".equals(item)) {
 				myCustomArrayList.remove(i);
-				i--; // Decrease the index 
+				i--; // Decrease the index
 			}
 		}
 	}
+
 	public static void printList(CustomList<String> myCustomArrayList) {
 		for (int i = 0; i < myCustomArrayList.getSize(); i++) {
 			System.out.println(myCustomArrayList.get(i));
